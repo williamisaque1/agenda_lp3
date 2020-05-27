@@ -13,7 +13,7 @@ tipoContatoRouter.get("/", async (request, response) => {
 
   try {
     const client = await pool.connect();
-    const result = await client.query("SELECT * FROM tipocontato");
+    const result = await client.query("SELECT * FROM local");
     const results = result.rows;
     client.end();
     return response.json({ results });
