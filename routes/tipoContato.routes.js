@@ -6,6 +6,7 @@ const tipoContatoRouter = Router();
 tipoContatoRouter.get("/", async (request, response) => {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
+   
     ssl: {
       rejectUnauthorized: false,
     },
@@ -13,7 +14,7 @@ tipoContatoRouter.get("/", async (request, response) => {
 
   try {
     const client = await pool.connect();
-    const result = await client.query("SELECT * FROM local");
+    const result = await client.query("SELECT * FROM tipocontato");
     const results = result.rows;
     client.end();
     return response.json({ results });
