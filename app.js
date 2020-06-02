@@ -4,5 +4,6 @@ const routes = require("./routes/index");
 const app = express();
 app.use(express.json());
 app.use(routes);
+app.use(conexao.js);
 
 module.exports = app;
