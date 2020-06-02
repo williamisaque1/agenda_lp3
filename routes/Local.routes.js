@@ -56,7 +56,7 @@ LocalRouter.post("/", async (request, response) => {
   }
 });
 
-tipoContatoRouter.patch("/:id", async (request, response) => {
+LocalRouter.patch("/:id", async (request, response) => {
   const { id } = request.params;
   const { descricao } = request.body;
 
