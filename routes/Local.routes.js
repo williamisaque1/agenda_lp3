@@ -83,7 +83,7 @@ LocalRouter.post("/", async (request, response) => {
   }
 });
 */
-tipoContatoRouter.delete("/:id", async (request, response) => {
+LocalRouter.delete("/:id", async (request, response) => {
   const { id } = request.params;
 
   const pool = new Pool({
@@ -106,6 +106,6 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
     console.error(err);
     return response.json(err);
   }
-});
+})
 
 module.exports = LocalRouter;
