@@ -57,9 +57,9 @@ LocalRouter.post("/", async (request, response) => {
   }
 });
 
-/*LocalRouter.patch("/:id", async (request, response) => {
+LocalRouter.patch("/:id", async (request, response) => {
   const { id } = request.params;
-  const { descricao } = request.body;
+  const { cep,endereco,numero,bairro,complemento,cidade,estado } = request.body;
 
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
@@ -69,8 +69,8 @@ LocalRouter.post("/", async (request, response) => {
   });
 
   try {
-    const text = "UPDATE tipocontato SET descricao = $1 WHERE id = $2";
-    const parametros = [descricao, id];
+    const text = "UPDATE local SET cep ,endereco,numero,bairro,complemento,cidade,estado = $1,$2,$3,$4,$5,$6,$7 WHERE id = $8";
+    const parametros = [cep,endereco,numero,bairro,complemento,cidade,estado,id];
 
     const client = await pool.connect();
     const result = await client.query(text, parametros);
@@ -82,7 +82,7 @@ LocalRouter.post("/", async (request, response) => {
     return response.json(err);
   }
 });
-*/
+
 LocalRouter.delete("/:id", async (request, response) => {
   const { id } = request.params;
 
