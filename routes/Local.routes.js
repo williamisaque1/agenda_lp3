@@ -56,7 +56,7 @@ LocalRouter.post("/", async (request, response) => {
   }
 });
 
-LocalRouter.patch("/:id", async (request, response) => {
+/*LocalRouter.patch("/:id", async (request, response) => {
   const { id } = request.params;
   const { descricao } = request.body;
 
@@ -105,6 +105,6 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
     console.error(err);
     return response.json(err);
   }
-});
+})*/
 
 module.exports = LocalRouter;
