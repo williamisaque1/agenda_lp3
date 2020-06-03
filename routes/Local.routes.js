@@ -69,7 +69,7 @@ LocalRouter.patch("/:id", async (request, response) => {
   });
 
   try {
-    const text = "UPDATE local SET cep ,endereco,numero,bairro,complemento,cidade,estado = $1,$2,$3,$4,$5,$6,$7 WHERE id = $8";
+    const text = "UPDATE public.local SET cep,endereco,numero,bairro,complemento,cidade,estado = $1,$2,$3,$4,$5,$6,$7 WHERE id = $8 ; ";
     const parametros = [cep,endereco,numero,bairro,complemento,cidade,estado,id];
 
     const client = await pool.connect();
