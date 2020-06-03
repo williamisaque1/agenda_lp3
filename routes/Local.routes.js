@@ -109,7 +109,7 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
     console.error(err);
     return response.json(err);
   }
-})
+});
 
 
 module.exports = LocalRouter;
