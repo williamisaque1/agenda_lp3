@@ -107,4 +107,4 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
   }
 });
 
-module.exports = tipoContatoRouter;
+module.exports = LocalRouter;
