@@ -82,7 +82,7 @@ LocalRouter.post("/", async (request, response) => {
     return response.json(err);
   }
 });
-
+*/
 tipoContatoRouter.delete("/:id", async (request, response) => {
   const { id } = request.params;
 
@@ -94,7 +94,7 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
   });
 
   try {
-    const text = "DELETE FROM public.tipocontato WHERE id=$1";
+    const text = "DELETE FROM public.local WHERE id=$1";
     const parametros = [id];
 
     const client = await pool.connect();
@@ -106,6 +106,6 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
     console.error(err);
     return response.json(err);
   }
-})*/
+})
 
 module.exports = LocalRouter;
