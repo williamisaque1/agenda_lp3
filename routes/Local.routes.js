@@ -56,8 +56,8 @@ LocalRouter.post("/", async (request, response) => {
     return response.json(err);
   }
 });
-/*
-LocalRouter.patch("/:id", async (request, response) => {
+
+/*LocalRouter.patch("/:id", async (request, response) => {
   const { id } = request.params;
   const { cep,endereco,numero,bairro,complemento,cidade,estado} = request.body;
 
@@ -82,9 +82,10 @@ LocalRouter.patch("/:id", async (request, response) => {
     console.error(err);
     return response.json(err);
   }
-  
-});
-*/
+  */
+ 
+
+
 
 tipoContatoRouter.delete("/:id", async (request, response) => {
   const { id } = request.params;
