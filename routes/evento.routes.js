@@ -5,7 +5,7 @@ const evento = Router();
 const EventoController = new eventoController;
 
 evento.get("/", async (Request, Response) => {
-  const item = await EventoController.index; 
+  const item = await EventoController.index(); 
   return Response.json(item);
   
 
