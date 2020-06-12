@@ -33,7 +33,7 @@ evento.post("/", async (Request, Response) => {
 
     }
 });
-module.exports = evento.routes;
+module.exports = evento;
 
 
 
