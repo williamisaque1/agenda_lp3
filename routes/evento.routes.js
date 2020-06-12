@@ -6,7 +6,7 @@ const EventoController = new eventoController;
 const evento = Router();
 evento.get("/", async (Request, Response) => {
   const item = await EventoController.index; 
-  return response.json(item);
+  return Response.json(item);
   
 
 });
@@ -33,7 +33,7 @@ evento.post("/", async (Request, Response) => {
 
     }
 });
-module.exports = evento.routes
+module.exports = evento.routes;
 
 
 
