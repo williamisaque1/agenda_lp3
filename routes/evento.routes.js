@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const eventoController = require("../controlles/eventoController");
-const { Pool } = require('pg');
+
 const evento = Router();
 const EventoController = new eventoController;
 
