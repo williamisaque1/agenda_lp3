@@ -11,7 +11,7 @@ class eventoController {
                 },
             });
             client.connect();
-            const result = await client.query("SELECT * FROM evento");
+            const result = await client.query("SELECT * FROM tipocontato");
             client.end();
             const results = result.rows;
             return result;
