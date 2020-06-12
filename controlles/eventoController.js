@@ -1,5 +1,4 @@
 const { Client } = require("pg");
-const { response } = require("../app");
 class eventoController {
     async index() {
         try {
