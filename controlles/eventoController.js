@@ -9,16 +9,17 @@ class eventoController {
 
                 },
             });
-           
+
             client.connect();
-           
+
             const result = await client.query("SELECT * FROM tipocontato ");
             client.end();
             const results = result.rows;
-            console.log("codigo chegou aqui");
+
             return results;
         } catch (err) {
             console.error(err);
+            console.log("codigo chegou aqui");
             return Response.json(err);
         }
 
