@@ -7,13 +7,13 @@ class eventoController {
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
                     rejectionUnauthorized: false,
+                    console.log("codigo chegou aqui3");
 
                 },
             });
-
             client.connect();
-
-            const result = await client.query("SELECT * FROM tipocontato ");
+            console.log("codigo chegou aqui4");
+            const result = await client.query("SELECT * FROM tipocontato");
             client.end();
             const results = result.rows;
             return results;
