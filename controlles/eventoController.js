@@ -18,7 +18,7 @@ class eventoController {
             return results;
         } catch (err) {
             console.error(err);
-            return response.json(err);
+            return Response.json(err);
         }
 
     }
