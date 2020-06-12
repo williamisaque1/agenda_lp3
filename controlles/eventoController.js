@@ -7,7 +7,7 @@ class eventoController {
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
                     rejectionUnauthorized: false,
-                    console.log("codigo chegou aqui3");
+                   
 
                 },
             });
@@ -19,7 +19,7 @@ class eventoController {
             return results;
         } catch (err) {
             console.error(err);
-            return response.json(err);
+            return response.json(err);  console.log("codigo chegou aqui3");
         }
 
     }
