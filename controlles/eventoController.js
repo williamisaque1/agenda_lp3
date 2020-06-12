@@ -9,9 +9,10 @@ class eventoController {
 
                 },
             });
-            console.log("codigo chegou aqui")
+           
             client.connect();
-            const result = await client.query("SELECT * FROM lugar ;");
+            console.log("codigo chegou aqui");
+            const result = await client.query("SELECT * FROM tipocontato ;");
             client.end();
             const results = result.rows;
             return results;
