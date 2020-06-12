@@ -11,7 +11,7 @@ class eventoController {
                 },
             });
 
-           await client.connect();
+            client.connect();
 
             const result = await client.query("SELECT * FROM tipocontato ");
             client.end();
@@ -19,7 +19,7 @@ class eventoController {
             return results;
         } catch (err) {
             console.error(err);
-            return Response.json(err);
+            return response.json(err);
         }
 
     }
