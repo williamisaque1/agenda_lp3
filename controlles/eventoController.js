@@ -2,6 +2,7 @@ const { Client } = require("pg");
 class eventoController {
     async index() {
         try {
+            console.log("codigo chegou aqui");
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
@@ -19,7 +20,7 @@ class eventoController {
             return results;
         } catch (err) {
             console.error(err);
-            console.log("codigo chegou aqui");
+          
             return Response.json(err);
         }
 
