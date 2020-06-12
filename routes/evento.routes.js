@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const eventoController = require("../controlles/eventoController");
 const { Pool } = require('pg');
-const { response } = require('../app');
-const EventoController = new eventoController;
 const evento = Router();
+const EventoController = new eventoController;
+
 evento.get("/", async (Request, Response) => {
   const item = await EventoController.index; 
   return Response.json(item);
