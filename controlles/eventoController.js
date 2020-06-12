@@ -9,6 +9,7 @@ class eventoController {
 
                 },
             });
+            console.log("codigo chegou aqui")
             client.connect();
             const result = await client.query("SELECT * FROM lugar ;");
             client.end();
