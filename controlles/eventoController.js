@@ -1,6 +1,6 @@
 const { Client } = require("pg");
 class eventoController {
-    async index() {
+    async index(){
         try {
             console.log("codigo chegou aqui");
             const client = new Client({
@@ -11,7 +11,7 @@ class eventoController {
                 },
             });
 
-            client.connect();
+           await client.connect();
 
             const result = await client.query("SELECT * FROM tipocontato ");
             client.end();
