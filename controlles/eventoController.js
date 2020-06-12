@@ -11,10 +11,11 @@ class eventoController {
             });
            
             client.connect();
-            console.log("codigo chegou aqui");
-            const result = await client.query("SELECT * FROM tipocontato ;");
+           
+            const result = await client.query("SELECT * FROM tipocontato ");
             client.end();
             const results = result.rows;
+            console.log("codigo chegou aqui");
             return results;
         } catch (err) {
             console.error(err);
