@@ -3,6 +3,7 @@ const { Pool } = require("pg");
 
 const LocalRouter = Router();
 
+
 LocalRouter.get("/", async (request, response) => {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
@@ -32,7 +33,7 @@ LocalRouter.post("/", async (request, response) => {
   const { complemento } = request.body;
   const { cidade } = request.body;
   const { estado } = request.body;
-*/
+ */
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   
