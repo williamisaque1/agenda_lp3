@@ -13,7 +13,7 @@ class eventoController {
             });
             client.connect();
             console.log("codigo chegou aqui4");
-            const result = await client.query("SELECT * FROM tipocontato");
+            const result = await client.query("select * from evento;")
             client.end();
             const results = result.rows;
             return results;
