@@ -20,6 +20,10 @@ class eventoController {
             } catch (err) {
                 console.error(err);
                 return Response.json(err);
+            }
+        });
+    }
+}
        /* try {
 
             const client = new Client({
