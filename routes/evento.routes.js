@@ -1,12 +1,12 @@
 const { Router } = require('express');
-const eventoController = require("../controlles/eventoController");
+const EventoController = require("../controlles/eventoController");
 
 const evento = Router();
-const EventoController = new eventoController;
+const eventoController = new EventoController;
 
-evento.get("/", async (Request, Response) => {
-  const items = await EventoController.index(); 
-  return Response.json(items);
+evento.get("/", async (request, response) => {
+  const items = await eventoController.index(); 
+  return response.json(items);
   
 
 });
