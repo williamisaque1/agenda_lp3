@@ -17,7 +17,12 @@ class eventoController {
             console.log("codigo chegou aqui3");
             client.end();
             const results = result.rows;
-            return {results};
+           
+            return Response.json([
+                {
+                    name: "gta",
+                     studio:"rockstar"
+                }]);
               
         } catch (err) {
             console.error(err);
