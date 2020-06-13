@@ -1,17 +1,9 @@
 const { Router } = require("express");
-//const { Pool } = require("pg");
-//const { Router } = require('express');
+const { Pool } = require("pg");
+
 const LocalRouter = Router();
-const LugarController = require("../controlles/localController");
 
-const lugaar = new LugarController();
 
-LocalRouter.get("/", async (request, response) => {
-  const items = await lugaar.index(); 
-  return response.json(items);
-
-  
-/*
 LocalRouter.get("/", async (request, response) => {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
@@ -32,9 +24,10 @@ LocalRouter.get("/", async (request, response) => {
     return response.json(err);
   }
 });
+
 LocalRouter.post("/", async (request, response) => {
   const {cep,endereco,numero,bairro,complemento,cidade,estado} = request.body;
- /* const { endereco } = request.body;
+  const { endereco } = request.body;
   const { numero } = request.body;
   const { bairro } = request.body;
   const { complemento } = request.body;
@@ -114,9 +107,6 @@ LocalRouter.delete("/:id", async (request, response) => {
     console.error(err);
     return response.json(err);
   }
-  */
 })
 
-
 module.exports = LocalRouter;
-
