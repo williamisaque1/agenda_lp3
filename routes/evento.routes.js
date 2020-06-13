@@ -6,7 +6,7 @@ const eventoController = new EventoController();
 
 evento.get("/", async (request, response) => {
   const items = await eventoController.index(); 
-  return response.json(items);
+  return response.json(items + "hh");
   
 
 });
@@ -19,7 +19,7 @@ evento.get("/", async (request, response) => {
         },
     });
     try {
-        const  aux = "select * from evento where  = idlocal ;" 
+        const  aux = "s elect * from evento where  = idlocal ;" 
         const text = "insert into evento (nome,datahora,idlocal,qtdeparticipantes) values ($1,$2,$3,$4); ";
         const parametros = [nome, datahora, idlocal, qtdeparticipantes];
         const client = await Pool.connect();
