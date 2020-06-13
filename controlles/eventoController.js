@@ -12,19 +12,22 @@ class eventoController {
                 },
             });
             client.connect();
-            console.log("codigo chegou aqui4");
             const result = await client.query("select * from evento;")
-            console.log("codigo chegou aqui3");
             client.end();
             const results = result.rows;
-           
             return results;
-              
+
         } catch (err) {
-            console.error(err);
-            return response.json(err);
-}
-        
+
+
+            return Promise.reject('Oops!').catch(err => {
+                throw new Error(err);
+                console.error(err);
+
+            });
+        }
+
+
 
 
     }
