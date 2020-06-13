@@ -10,7 +10,7 @@ evento.get("/", async (Request, Response) => {
   
 
 });
-evento.post("/", async (Request, Response) => {
+/*evento.post("/", async (Request, Response) => {
     const { nome, datahora, idlocal, qtdeparticipantes } = Request.body;
     const pool = new Pool({
         connectionString: process.env.database_url,
@@ -31,8 +31,8 @@ evento.post("/", async (Request, Response) => {
         console.error(err);
         return Response.json(err);
 
-    }
-});
+    } 
+});*/
 module.exports = evento;
 
 

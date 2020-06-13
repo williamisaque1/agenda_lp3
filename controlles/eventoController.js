@@ -1,7 +1,26 @@
 const { Client } = require("pg");
+const {Pool} = require ("pg");
 class eventoController {
     async index() {
-        try {
+        evento.post("/", async (Request, Response) => {
+         
+            const pool = new Pool({
+                connectionString: process.env.database_url,
+                ssl: {
+                    rejectUnauthorized: false,
+                },
+            });
+            try {
+                const  aux = "select * from evento where  = idlocal ;" 
+                const client = await Pool.connect();
+                const result = client.query(aux);
+                const results = result.rows;
+                client.end();
+                return  results ;
+            } catch (err) {
+                console.error(err);
+                return Response.json(err);
+       /* try {
 
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
@@ -30,5 +49,5 @@ class eventoController {
     }
 
 }
-
+*/
 module.exports = eventoController;
