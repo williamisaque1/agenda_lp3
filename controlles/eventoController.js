@@ -14,20 +14,18 @@ class eventoController {
             client.connect();
             const result = await client.query("select * from evento;")
             client.end();
-            const results = result.rows;
-            return results;
-
-        } catch (err) {
-
-
-            return Promise.reject('Oops!').catch(err => {
-                throw new Error(err);
-                console.error(err);
-
+            const results = result.rows;          
+            results.map((even) => {
+             return even;
             });
+
+           
+              
+        } catch (err) {
+            console.error(err);
+            return response.json(err);
         }
-
-
+        
 
 
     }
