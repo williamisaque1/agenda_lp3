@@ -18,11 +18,7 @@ class eventoController {
             client.end();
             const results = result.rows;
            
-            return Response.json([
-                {
-                    name: "gta",
-                     studio:"rockstar"
-                }]);
+            return results;
               
         } catch (err) {
             console.error(err);
