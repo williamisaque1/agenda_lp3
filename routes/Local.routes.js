@@ -1,12 +1,12 @@
 const { Router } = require("express");
-const { Pool } = require("pg");
-const { Router } = require('express');
+//const { Pool } = require("pg");
+//const { Router } = require('express');
 const LocalRouter = Router();
 const LugarController = require("../controlles/localController");
-const lugar= Router();
-const lugaar = new LugarController;
 
-lugar.get("/", async (request, response) => {
+const lugaar = new LugarController();
+
+LocalRouter.get("/", async (request, response) => {
   const items = await lugaar.index(); 
   return response.json(items);
 
@@ -118,5 +118,5 @@ LocalRouter.delete("/:id", async (request, response) => {
 })
 
 
-module.exports = lugar;
+module.exports = LocalRouter;
 
