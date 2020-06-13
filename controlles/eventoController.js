@@ -11,7 +11,7 @@ class eventoController {
                 },
             });
             try {
-                const  aux = "select * from evento where  = idlocal ;" 
+                const  aux = "select * from evento ;" 
                 const client = await Pool.connect();
                 const result = client.query(aux);
                 const results = result.rows;
