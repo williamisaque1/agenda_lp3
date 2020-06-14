@@ -6,7 +6,7 @@ const eventoController = new EventoController();
 
 evento.get("/", async (request, response) => {
   const items = await eventoController.index(); 
-  return response.json(items);
+  return response.json([{name:"oiii", ass:"cheiroso"}]);
   
 
 });
