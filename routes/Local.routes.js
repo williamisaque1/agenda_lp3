@@ -27,13 +27,13 @@ LocalRouter.get("/", async (request, response) => {
 
 LocalRouter.post("/", async (request, response) => {
   const {cep,endereco,numero,bairro,complemento,cidade,estado} = request.body;
-  const { endereco } = request.body;
+ /* const { endereco } = request.body;
   const { numero } = request.body;
   const { bairro } = request.body;
   const { complemento } = request.body;
   const { cidade } = request.body;
   const { estado } = request.body;
-
+*/
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   
