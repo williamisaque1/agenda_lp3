@@ -16,7 +16,7 @@ class eventoController {
             client.end();
             const results = result.rows;
 
-            return {name:"faala", ass:"carlao"};
+            return {name:"faala", assinado:"carlao"};
         }
 
         catch (err) {
