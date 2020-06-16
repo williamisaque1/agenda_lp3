@@ -12,9 +12,10 @@ class eventoController {
                 },
             });
             client.connect();
-            const result = await client.query("select * from evento;")
-            client.end();
+            const result = await client.query("select * from evento")
+          
             const results = result.rows;
+            client.end();
 
             return results;
         } catch (err) {
@@ -26,8 +27,4 @@ class eventoController {
 
     }
 };
-
-
-
-
 module.exports = eventoController;
