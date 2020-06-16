@@ -1,18 +1,18 @@
-const { Client } = require("pg");
+const { Pool } = require("pg");
 class tipoContatoController {
     async index() {
 
         try {
-            const client = new Client({
+            const pool = new Pool({
                 connectionString: process.env.DATABASE_URL,
+               
                 ssl: {
-                    rejectionUnauthorized: false,
-
-
+                  rejectUnauthorized: false,
                 },
-            });
-            client.connect();
-            const result = await client.query("select * from tipocontato")
+              });
+            
+             pool.connect()
+            const result = await pool.query("select * from tipocontato")
             client.end();
             const results = result.rows;
             return results;
