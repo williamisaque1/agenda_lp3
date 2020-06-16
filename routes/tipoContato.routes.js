@@ -1,11 +1,12 @@
 const { Router } = require("express");
-const { Pool } = require("pg");
+//const { Pool } = require("pg");
 const tipoContatoController = require("../controlles/tipoContatoController");
 
 const tipoContatoRouter = Router();
+const tipocontatoController  =  new  tipoContatoController();
 
 tipoContatoRouter.get("/", async (request, response) => {
-  const items = await tipoContatoController; 
+  const items = await tipocontatoController.index(); 
   return response.json(items);
   
 
