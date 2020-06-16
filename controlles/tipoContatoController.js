@@ -12,7 +12,7 @@ class tipoContatoController {
               });
             
              pool.connect()
-            const result = await pool.query("select * from tipocontato")
+            const result = await pool.query("select * from tipocontato");
             client.end();
             const results = result.rows;
             return results;
