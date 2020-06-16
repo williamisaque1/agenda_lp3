@@ -15,7 +15,7 @@ class tipoContatoController {
             const result = await pool.query("select * from tipocontato");
             client.end();
             const results = result.rows;
-            return results;
+            return results.values;
         } catch (err) {
             console.error(err);
             return response.json(err);
