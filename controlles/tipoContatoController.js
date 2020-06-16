@@ -1,5 +1,4 @@
 const { Client } = require("pg");
-const { response } = require("express");
 class tipoContatoController {
     async index() {
 
@@ -16,7 +15,6 @@ class tipoContatoController {
             const result = await client.query("select * from tipocontato;")
             client.end();
             const results = result.rows;
-
             return results;
         } catch (err) {
             console.error(err);
@@ -27,8 +25,4 @@ class tipoContatoController {
 
     }
 };
-
-
-
-
 module.exports = tipoContatoController;
