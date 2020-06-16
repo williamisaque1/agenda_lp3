@@ -1,11 +1,12 @@
 const { Router } = require("express");
-const { Pool } = require("pg");
+//const { Pool } = require("pg");
+const { Client } = require("pg");
 
 const LocalRouter = Router();
 
 
 LocalRouter.get("/", async (request, response) => {
-  const pool = new Pool({
+  const client = new Client({
     connectionString: process.env.DATABASE_URL,
    
     ssl: {
@@ -14,7 +15,7 @@ LocalRouter.get("/", async (request, response) => {
   });
 
   try {
-    const client = await pool.connect();
+    client.connect();
     const result = await client.query("SELECT * FROM local");
     const results = result.rows;
     client.end();
