@@ -1,15 +1,33 @@
 const { Router } = require('express');
 const EventoController = require("../controlles/eventoController");
-
+const {Client} = require('pg');
 const evento = Router();
 const eventoController = new EventoController();
 
 evento.get("/", async (request, response) => {
-  const items = await eventoController.index(); 
-  return response.json(items);
+    const client = new Client({
+        connectionString: process.env.DATABASE_URL,
+       
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      });
+    
+      try {
+        client.connect();
+        const result = await client.query("SELECT * FROM evento");
+        const results = result.rows;
+        client.end();
+        return response.json({ results });
+      } catch (err) {
+        console.error(err);
+        return response.json(err);
+      }
+    });
+
   
 
-});
+
 /*evento.post("/", async (Request, Response) => {
     const { nome, datahora, idlocal, qtdeparticipantes } = Request.body;
     const pool = new Pool({
