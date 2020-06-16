@@ -1,6 +1,6 @@
 const { Router } = require("express");
 //const { Pool } = require("pg");
-const tipoContatoController = require("../controlles/tipoContatoController");
+const tipoContatoController = require("./controlles/tipoContatoController");
 
 const tipoContatoRouter = Router();
 const tipocontatoController  =  new  tipoContatoController();
