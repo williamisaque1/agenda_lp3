@@ -8,5 +8,6 @@ console.log("codigo chegou aqui2");
 routes.use("/tipoContato", tipoContatoRouter);
 routes.use("/local",localRouter);
 routes.use("/evento",eventoRouter);
+
 module.exports = routes;
 
