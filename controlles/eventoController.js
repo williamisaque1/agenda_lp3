@@ -11,12 +11,10 @@ class eventoController {
 
                 },
             });
-            client.connect();
+            await client.connect();
             const result = await client.query("select * from evento")
-          
-            const results = result.rows;
             client.end();
-
+            const results = result.rows;
             return results;
         } catch (err) {
             console.error(err);
