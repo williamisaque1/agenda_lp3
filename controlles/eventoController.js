@@ -2,7 +2,7 @@ const { Client } = require("pg");
 class eventoController {
     async index() {
 
-
+try{
         const client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: {
@@ -17,7 +17,10 @@ class eventoController {
         const results = result.rows;
 
         return results;
-    };
+    }catch (err){
+        console.error(err);
+        return response.json(err);
+      }
 
 
 
