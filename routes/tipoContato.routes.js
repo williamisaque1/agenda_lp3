@@ -1,29 +1,16 @@
 const { Router } = require("express");
 const { Pool } = require("pg");
+const tipoContatoController = require("../controlles/tipoContatoController");
 
 const tipoContatoRouter = Router();
 
 tipoContatoRouter.get("/", async (request, response) => {
-  const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-   
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
+  const items = await tipoContatoController; 
+  return response.json(items);
+  
 
-  try {
-    const client = await pool.connect();
-    const result = await client.query("SELECT * FROM tipocontato");
-    const results = result.rows;
-    client.end();
-    return response.json({ results });
-  } catch (err) {
-    console.error(err);
-    return response.json(err);
-  }
 });
-
+/*
 tipoContatoRouter.post("/", async (request, response) => {
   const { descricao } = request.body;
 
@@ -99,5 +86,6 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
     return response.json(err);
   }
 });
+*/
 
 module.exports = tipoContatoRouter;
