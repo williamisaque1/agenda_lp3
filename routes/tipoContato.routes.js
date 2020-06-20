@@ -8,7 +8,7 @@ tipoContatoRouter.get("/", async (request, response) => {
   const items = await tipocontatoController.index(); 
   return response.json(items);
 });
-module.exports = tipoCsontatoRouter;
+module.exports = tipoContatoRouter;
 /*
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
