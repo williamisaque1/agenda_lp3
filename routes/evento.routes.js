@@ -5,24 +5,9 @@ const evento = Router();
 const eventoController = new EventoController();
 
 evento.get("/", async (request, response) => {
-    const client = new Client({
-        connectionString: process.env.DATABASE_URL,
-       
-        ssl: {
-          rejectUnauthorized: false,
-        },
-      });
-    
-      try {
-        client.connect();
-        const result = await client.query("SELECT * FROM evento");
-        const results = result.rows;
-        client.end();
-        return response.json({ results });
-      } catch (err) {
-        console.error(err);
-        return response.json(err);
-      }
+  const items = eventoController.index();
+  response.json(items);
+  
     });
 
   
