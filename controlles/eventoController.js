@@ -6,13 +6,13 @@ class eventoController {
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
-                    rejectionUnauthorized: false,
+                    rejectUnauthorized: false, // rejectionUnauthorized: false, este talves erra o erro
 
 
                 },
             });
             await client.connect();
-            const result = await client.query("select * from evento")
+            const result = await client.query("SELECT * FROM evento")
             client.end();
             const results = result.rows;
             return results;
