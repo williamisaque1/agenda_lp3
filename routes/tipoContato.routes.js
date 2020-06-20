@@ -1,12 +1,15 @@
 const { Router } = require("express");
-const { Client } = require("pg");
 const tipoContatoController = require("../controlles/tipoContatoController");
 
 const tipoContatoRouter = Router();
 const tipocontatoController  =  new  tipoContatoController();
 
 tipoContatoRouter.get("/", async (request, response) => {
-
+  const items = await tipocontatoController.index(); 
+  return response.json(items);
+});
+module.exports = tipoCsontatoRouter;
+/*
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
    
@@ -26,7 +29,8 @@ tipoContatoRouter.get("/", async (request, response) => {
     return response.json(err);
   }
 });
-  /*const items = await tipocontatoController.index(); 
+*/
+ /* const items = await tipocontatoController.index(); 
   return response.json(items);*/
   
 
@@ -109,4 +113,4 @@ tipoContatoRouter.delete("/:id", async (request, response) => {
 });
 */
 
-module.exports = tipoContatoRouter;
+
