@@ -6,8 +6,8 @@ const eventoController = new EventoController();
 evento.get("/", async (request, response) => {
   const items = await eventoController.index();
  return response.json(items);
-  
     });
+    module.exports = evento;
    
 
   
@@ -36,7 +36,7 @@ evento.get("/", async (request, response) => {
 
     } 
 });*/
-module.exports = evento;
+
 
 
 
