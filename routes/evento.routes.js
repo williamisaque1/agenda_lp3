@@ -1,14 +1,14 @@
 const { Router } = require('express');
 const EventoController = require("../controlles/eventoController");
-const {Client} = require('pg');
 const evento = Router();
 const eventoController = new EventoController();
 
 evento.get("/", async (request, response) => {
-  const items = eventoController.index();
+  const items = await eventoController.index();
   response.json(items);
   
     });
+   
 
   
 
@@ -37,6 +37,7 @@ evento.get("/", async (request, response) => {
     } 
 });*/
 module.exports = evento;
+
 
 
 
