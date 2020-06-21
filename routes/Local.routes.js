@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const Localcontroller = require("../controlles/localController");
+const Localcontroller = require("../controlles/localController ");
 const { request, response } = require("../app");
 const localRouter = Router();
 const localcontroller = new Localcontroller();
