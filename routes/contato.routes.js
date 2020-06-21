@@ -26,7 +26,7 @@ contato.delete("/:id",async (request,response) => {
  return response.json(items);
 })
 
-module.exports = evento;
+module.exports = contato;
 
 
 
