@@ -53,8 +53,9 @@ class localController {
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
-                    rejectUnauthorized = false,
+                    rejectUnauthorized: false,
                 }
+                
             });
            
             const text = "DELETE FROM local WHERE id = $1 ";
