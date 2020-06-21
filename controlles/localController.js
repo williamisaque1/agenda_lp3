@@ -12,7 +12,8 @@ class localController {
 
           
             client.connect();
-            const result = await client.query("SELECT FROM local");
+            const text = "SELECT * FROM local";
+            const result = await client.query(text);
             client.end();
             const results = result.rows;
             return results;
@@ -21,6 +22,7 @@ class localController {
             return response.json(err);
         }
     }
+    
     async create(cep, endereco, numero, bairro, complemento, cidade, estado) {
         try {
             const client = new Client({

@@ -11,8 +11,7 @@ class participantesEventoController {
 
             });
             client.connect();
-            const text = "SELECT FROM participantesevento";
-            const result = await client.query(text);
+            const result = await client.query("SELECT * FROM participantesevento");
             client.end();
             const results = result.rows;
             return results;
