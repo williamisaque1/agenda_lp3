@@ -33,7 +33,7 @@ class tipoContatoController {
                     rejectUnauthorized : false,
                 }
             });
-            const text = "INSERT INTO tipocontato ( id , descricao) VALUES ($1,$2)";
+            const text = "INSERT INTO tipocontato ( id , descricao) VALUES ($1,$2) ";
             const params = [id, descricao];
             client.connect();
             const result = await client.query(text, params);
