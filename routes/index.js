@@ -6,7 +6,7 @@ const eventoRouter = require("./evento.routes");
 const contatoRouter = require("./contato.routes");
 const participantesevento = require("./participantesEvento.routes");
 const routes = Router();
-console.log("codigo chegou aqui2");
+console.log("codigo chegou aqui 2");
 routes.use("/tipoContato", tipoContatoRouter);
 routes.use("/local",localRouter);
 routes.use("/evento",eventoRouter);
