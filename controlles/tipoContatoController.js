@@ -4,14 +4,16 @@ const { text } = require("express");
 class tipoContatoController {
     async index() {
 
-        try {
-            const client = new Client({
-                connectionString: process.env.DATABASE_URL,
-
-                ssl: {
-                    rejectUnauthorized: false,
-                },
-            });
+    
+            try {
+                const client = new Client({
+                    connectionString: process.env.DATABASE_URL,
+                    ssl: {
+                        rejectUnauthorized: false, // rejectionUnauthorized: false, este talves erra o erro
+    
+    
+                    },
+                });
 
             client.connect()
             const result = await client.query("SELECT * FROM tipocontato");
