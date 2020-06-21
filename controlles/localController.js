@@ -10,9 +10,9 @@ class localController {
 
             });
 
-            const text = "SELECT FROM local";
+          
             client.connect();
-            const result = await client.query(text);
+            const result = await client.query("SELECT FROM local");
             client.end();
             const results = result.rows;
             return results;
