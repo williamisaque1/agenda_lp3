@@ -1,5 +1,4 @@
 const { Client } = require("pg");
-console.log("chegouu");
 class localController {
     async index() {
         try {

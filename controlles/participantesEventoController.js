@@ -52,7 +52,7 @@ class participantesEventoController {
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
-                    rejectUnauthorized = false,
+                    rejectUnauthorized: false,
                 }
             });
             client.connect();
