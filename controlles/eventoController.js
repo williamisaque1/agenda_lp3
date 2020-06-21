@@ -11,7 +11,7 @@ class eventoController {
 
                 },
             });
-            await client.connect();
+             client.connect();
             const result = await client.query("SELECT * FROM evento")
             client.end();
             const results = result.rows;

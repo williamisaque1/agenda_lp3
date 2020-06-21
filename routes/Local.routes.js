@@ -5,6 +5,7 @@ const localcontroller = new Localcontroller();
 
 localRouter.get("/",async (request,response) =>{
  const items = await localcontroller.index();
+ console.log(items);
   return response.json(items);
 });
 localRouter.post("/",async(request,response) => {
