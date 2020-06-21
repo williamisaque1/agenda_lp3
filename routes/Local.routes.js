@@ -1,113 +1,17 @@
-const { Router } = require("express");
-//const { Pool } = require("pg");
-const { Client } = require("pg");
-
-const LocalRouter = Router();
+const {Router} = require("express");
+const localcontroller = require("../controlles/localController");
 
 
-LocalRouter.get("/", async (request, response) => {
-  const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-   
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
 
-  try {
-    client.connect();
-    const result = await client.query("SELECT * FROM local");
-    const results = result.rows;
-    client.end();
-    return response.json({ results });
-  } catch (err) {
-    console.error(err);
-    return response.json(err);
-  }
-});
 
-LocalRouter.post("/", async (request, response) => {
-  const {cep,endereco,numero,bairro,complemento,cidade,estado} = request.body;
- /* const { endereco } = request.body;
-  const { numero } = request.body;
-  const { bairro } = request.body;
-  const { complemento } = request.body;
-  const { cidade } = request.body;
-  const { estado } = request.body;
-*/
-  const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-  
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
 
-  try {
-    const text = "INSERT INTO public.local (cep ,endereco,numero,bairro,complemento,cidade,estado) VALUES($1,$2,$3,$4,$5,$6,$7);";
-    const parametros = [cep,endereco,numero,bairro,complemento,cidade,estado];
-   
 
-    const client = await pool.connect();
-    const result = await client.query(text, parametros);
-    const results = result.rows;
-    client.end();
-    return response.json({ results });
-  } catch (err) {
-    console.error(err);
-    return response.json(err);
-  }
-});
 
-LocalRouter.patch("/:id", async (request, response) => {
-  const { id } = request.params;
-  const { cep,endereco,numero,bairro,complemento,cidade,estado } = request.body;
 
-  const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
 
-  try {
-    const text = "UPDATE public.local SET cep = $1 ,endereco = $2 ,numero = $3 ,bairro = $4 ,complemento = $5 ,cidade = $6 ,estado = $7 WHERE id = $8 ; ";
-    const parametros = [cep,endereco,numero,bairro,complemento,cidade,estado,id];
 
-    const client = await pool.connect();
-    const result = await client.query(text, parametros);
-    const results = result.rows;
-    client.end();
-    return response.json({ results });
-  } catch (err) {
-    console.error(err);
-    return response.json(err);
-  }
-});
 
-LocalRouter.delete("/:id", async (request, response) => {
-  const { id } = request.params;
 
-  const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
 
-  try {
-    const text = "DELETE FROM public.local WHERE id=$1;";
-    const parametros = [id];
-
-    const client = await pool.connect();
-    const result = await client.query(text, parametros);
-    const results = result.rows;
-    client.end();
-    return response.json({ results });
-  } catch (err) {
-    console.error(err);
-    return response.json(err);
-  }
-})
 
 module.exports = LocalRouter;
