@@ -30,7 +30,7 @@ class tipoContatoController {
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
-                    rejectUnauthorized = false,
+                    rejectUnauthorized : false,
                 }
             });
             const text = "INSERT INTO tipocontato ( id , descricao) VALUES ($1,$2)";
@@ -57,7 +57,7 @@ class tipoContatoController {
             const client = new Client({
                 connectionString:process.env.DATABASE_URL,
                     ssl:{
-                        rejectUnauthorized = false,
+                        rejectUnauthorized : false,
                     }
             });
             client.connect();
