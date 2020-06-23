@@ -54,6 +54,7 @@ class contatoController {
 
     };
     async delete(id) {
+        
         try {
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
@@ -61,7 +62,7 @@ class contatoController {
                     rejectUnauthorized: false,
                 }
             });
-            const text = "DELETE FROM contato WHERE id = $1";
+            const text = "DELETE FROM public.contato WHERE id = $1";
             const parametros = [id];
             client.connect();
             const result = await client.query(text, parametros);
@@ -71,6 +72,7 @@ class contatoController {
             };
             return response;
         } catch (err) {
+            console.log("especificando %",id);
             console.log(err);
             const response = {
                 message: "erro",
