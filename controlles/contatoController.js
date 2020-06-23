@@ -25,7 +25,7 @@ class contatoController {
 
 
     };
-    async create(nome, datahora, idlocal, qtdeparticipantes) {
+    async create(nome,email,telefone,idlocal,idtipocontato) {
         try {
             const client = new Client({
                 connectionString: process.env.DATABASE_URL,
@@ -76,7 +76,7 @@ class contatoController {
             console.log(err);
             const response = {
                 message: "erro",
-            }
+            };
             return response;
         }
     }
