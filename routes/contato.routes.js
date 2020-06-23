@@ -11,7 +11,7 @@ contato.get("/", async (request, response) => {
 });
 contato.post("/", async (request, response) => {
   const { nome, email, telefone, idlocal, idtipocontato } = request.body;
-  const resp = await contatoController.create(
+  const resp = await contatocontroller.create(
     nome,
      email, 
      telefone, 
