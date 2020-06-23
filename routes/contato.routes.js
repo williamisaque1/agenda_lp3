@@ -22,7 +22,7 @@ contato.post("/", async (request, response) => {
 });
 contato.delete("/:id",async (request,response) => {
  const {id} = request.params;
- const items = await contatoController.delete(id);
+ const items = await contatocontroller.delete(id);
  return response.json(items);
 })
 
