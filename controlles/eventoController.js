@@ -62,7 +62,7 @@ class eventoController {
                     rejectUnauthorized:false,
                 }
             });
-            const text = "DELETE FROM contato WHERE id = $1";
+            const text = "DELETE FROM evento WHERE id = $1";
             const parametros = [id];
             client.connect();
             const result = await client.query(text,parametros);
