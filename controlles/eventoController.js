@@ -35,7 +35,7 @@ class eventoController {
 
                 },
             });
-            const text = "INSERT INTO evento nome,to_char( datahora,'yyyy/mm/dd' ) ,idlocal,qtdeparticipantes) VALUES  ($1,$2,$3,$4)";
+            const text = "INSERT INTO evento nome,to_char( datahora,'yyyy/mm/dd' ) as datahora ,idlocal,qtdeparticipantes) VALUES  ($1,$2,$3,$4)";
         const parametros = [nome, datahora, idlocal, qtdeparticipantes];
          client.connect();
         const result = await client.query(text, parametros);
