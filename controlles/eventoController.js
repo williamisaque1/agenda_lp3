@@ -12,7 +12,7 @@ class eventoController {
                 },
             });
              client.connect();
-            const result = await client.query("SELECT * FROM evento")
+            const result = await client.query("select id,nome,to_char( datahora,'dd/mm/yyyy' )  ,idlocal ,qtdeparticipantes from evento ;")
             client.end();
             const results = result.rows;
             return results;
@@ -35,7 +35,7 @@ class eventoController {
 
                 },
             });
-            const text = "INSERT INTO evento (nome,datahora,idlocal,qtdeparticipantes) VALUES  ($1,$2,$3,$4)";
+            const text = "INSERT INTO evento nome,to_char( datahora,'yyyy/mm/dd' ) ,idlocal,qtdeparticipantes) VALUES  ($1,$2,$3,$4)";
         const parametros = [nome, datahora, idlocal, qtdeparticipantes];
          client.connect();
         const result = await client.query(text, parametros);
