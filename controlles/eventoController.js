@@ -12,7 +12,7 @@ class eventoController {
                 },
             });
              client.connect();
-            const result = await client.query("select id,nome,to_char( datahora,'dd/mm/yyyy' )  ,idlocal ,qtdeparticipantes from evento ;")
+            const result = await client.query("select id,nome,to_char( datahora,'dd/mm/yyyy' ) as datahora  ,idlocal ,qtdeparticipantes from evento ;")
             client.end();
             const results = result.rows;
             return results;
